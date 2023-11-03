@@ -29,6 +29,20 @@ class HoursRepository {
 
     return(id);
   }
+
+  async create({ intern_id, data_entrada, data_saida, hora_entrada, hora_saida, valor_hora }) {
+    const id = v4();
+    const query = 'INSERT INTO hours (id, intern_id, data_entrada, data_saida, hora_entrada, hora_saida, valor_hora) VALUES (?, ?, ?, ?, ?, ?, ?)';
+    const values = [id, intern_id, data_entrada, data_saida, hora_entrada, hora_saida, valor_hora];
+
+    await db.query(query, values);
+
+    return { id, intern_id, data_entrada, data_saida, hora_entrada, hora_saida, valor_hora };
+  }
+
+
+
+
 }
 
 

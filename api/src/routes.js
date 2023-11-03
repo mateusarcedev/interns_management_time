@@ -1,6 +1,7 @@
 const { Router } = require('express');
 
 const InternCoontroller = require('./app/controllers/InternController');
+const HourController = require('./app/controllers/hourController');
 
 const router = Router()
 
@@ -12,6 +13,6 @@ router.post('/interns/', InternCoontroller.store);
 router.put('/interns/', InternCoontroller.update);
 
 // Routes of Hours
-
+router.get('/hours', HourController.index);
 
 module.exports = router;

@@ -3,7 +3,23 @@ const db = require('../../database/db');
 
 class HoursRepository {
   findAll() {
-    return db.query("SELECT * FROM hours");
+    return db.query(`
+  SELECT
+    hours.id,
+    hours.intern_id,
+    hours.data_entrada,
+    hours.data_saida,
+    hours.hora_entrada,
+    hours.hora_saida,
+    hours.valor_hora,
+    hours.salario,
+    interns.nome,
+    interns.prontuario
+  FROM
+    hours
+  INNER JOIN interns ON hours.intern_id = interns.id;
+`);
+
   }
 
   async findById(id) {

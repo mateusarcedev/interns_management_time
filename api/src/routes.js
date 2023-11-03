@@ -14,5 +14,6 @@ router.put('/interns/', InternCoontroller.update);
 
 // Routes of Hours
 router.get('/hours', HourController.index);
+router.post('/hours', HourController.store);
 
 module.exports = router;
